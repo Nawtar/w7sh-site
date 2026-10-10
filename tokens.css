@@ -51,6 +51,7 @@
   --layout-content-max: 640px;
   --layout-card-w: 248px;
   --font-sans: -apple-system, 'SF Pro Text', 'SF Arabic', system-ui, 'Segoe UI', 'Noto Sans Arabic', sans-serif;
+  --font-display: 'Changa', 'SF Arabic', 'Noto Sans Arabic', sans-serif;
   --motion-fast: 120ms;
   --motion-base: 200ms;
   --motion-ease: cubic-bezier(.2,.8,.2,1);
