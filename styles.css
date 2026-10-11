@@ -2,6 +2,11 @@
    replica/design/tokens.json). Logical properties only (inline-start/end), so Arabic and
    English share one stylesheet. Text/background pairs are the ones contrast.py checks. */
 
+/* Changa (SIL OFL 1.1, web/fonts/OFL-1.1-LICENSE.txt): headings, the hero and the Arabic companion only. */
+@font-face { font-family: 'Changa'; font-weight: 600; font-display: swap; src: url('/fonts/Changa_600SemiBold.ttf') format('truetype'); }
+@font-face { font-family: 'Changa'; font-weight: 700; font-display: swap; src: url('/fonts/Changa_700Bold.ttf') format('truetype'); }
+@font-face { font-family: 'Changa'; font-weight: 800; font-display: swap; src: url('/fonts/Changa_800ExtraBold.ttf') format('truetype'); }
+
 * { box-sizing: border-box; }
 html { background: rgb(var(--color-bg)); }
 body {
@@ -13,18 +18,23 @@ body {
   line-height: var(--type-base-line);
   -webkit-text-size-adjust: 100%;
 }
-a { color: rgb(var(--color-accent)); }
+a { color: rgb(var(--color-accent-text)); }
 a:focus-visible, summary:focus-visible { outline: 2px solid rgb(var(--color-focus)); outline-offset: 2px; }
 img { max-width: 100%; height: auto; display: block; }
 
 .top, main, .foot { max-width: 1040px; margin-inline: auto; padding-inline: var(--layout-gutter); }
 .top { display: flex; justify-content: space-between; align-items: center; padding-block: var(--space-6); }
-.brand { font-weight: 700; font-size: var(--type-lg-size); color: rgb(var(--color-text)); text-decoration: none; }
+.brand { display: inline-flex; align-items: center; gap: var(--space-3); color: rgb(var(--color-text)); text-decoration: none; }
+.wm { display: block; width: 122px; height: 28px; }
+.wm-letter { fill: rgb(var(--color-text)); }
+.wm-seven { fill: rgb(var(--color-accent)); }
+.companion { font-family: var(--font-display); font-weight: 800; font-size: 28px; line-height: 1; color: rgb(var(--color-accent-text)); }
 .lang { font-size: var(--type-sm-size); }
 
-h1 { font-size: var(--type-display-size); line-height: var(--type-display-line); font-weight: var(--type-display-weight); margin: 0 0 var(--space-5); }
-h2 { font-size: var(--type-xl-size); line-height: var(--type-xl-line); font-weight: var(--type-xl-weight); margin: 0 0 var(--space-6); }
-h3 { font-size: var(--type-lg-size); line-height: var(--type-lg-line); font-weight: var(--type-lg-weight); margin: 0 0 var(--space-3); }
+h1, h2, h3 { font-family: var(--font-display); }
+h1 { font-size: var(--type-display-size); line-height: calc(var(--type-display-line) * 1.12); font-weight: 800; margin: 0 0 var(--space-5); }
+h2 { font-size: var(--type-xl-size); line-height: calc(var(--type-xl-line) * 1.12); font-weight: var(--type-xl-weight); margin: 0 0 var(--space-6); }
+h3 { font-size: var(--type-lg-size); line-height: calc(var(--type-lg-line) * 1.12); font-weight: var(--type-lg-weight); margin: 0 0 var(--space-3); }
 p { margin: 0 0 var(--space-5); }
 section { padding-block: var(--space-10); }
 
@@ -32,11 +42,14 @@ section { padding-block: var(--space-10); }
 .lead { font-size: var(--type-lg-size); line-height: var(--type-lg-line); color: rgb(var(--color-text-secondary)); }
 .note, .small { font-size: var(--type-sm-size); line-height: var(--type-sm-line); color: rgb(var(--color-text-muted)); }
 .shot, .shots img { border-radius: var(--radius-xl); border: 1px solid rgb(var(--color-border)); margin-inline: auto; max-width: 330px; width: 100%; }
+.hero-art { display: flex; align-items: flex-end; justify-content: center; gap: var(--space-5); }
+.hero-art .shot { margin-inline: 0; max-width: 260px; }
+.nimr { width: 160px; height: auto; flex: none; }
 
 .button {
   display: inline-flex; align-items: center; justify-content: center;
   min-height: var(--layout-button-lg); padding-inline: var(--space-8);
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-md);
   background: rgb(var(--color-accent)); color: rgb(var(--color-on-accent));
   font-weight: 600; text-decoration: none; margin-block-end: var(--space-4);
 }
@@ -47,7 +60,7 @@ section { padding-block: var(--space-10); }
 
 .steps { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-5); counter-reset: step; }
 .steps li { counter-increment: step; background: rgb(var(--color-surface)); border-radius: var(--radius-lg); padding: var(--space-6); }
-.steps li::before { content: counter(step); display: inline-grid; place-items: center; width: var(--space-9); height: var(--space-9); border-radius: var(--radius-pill); background: rgb(var(--color-accent)); color: rgb(var(--color-on-accent)); font-weight: 700; margin-block-end: var(--space-4); }
+.steps li::before { content: counter(step); display: inline-grid; place-items: center; width: var(--space-9); height: var(--space-9); border-radius: var(--radius-full); background: rgb(var(--color-accent)); color: rgb(var(--color-on-accent)); font-weight: 700; margin-block-end: var(--space-4); }
 .steps p, .card p { color: rgb(var(--color-text-secondary)); margin: 0; }
 
 .grid, .plans { display: grid; gap: var(--space-5); }
@@ -75,7 +88,8 @@ section { padding-block: var(--space-10); }
 
 @media (min-width: 760px) {
   h1 { font-size: calc(var(--type-display-size) * 1.4); line-height: 1.2; }
-  .hero { grid-template-columns: 1.2fr 1fr; }
+  .hero { grid-template-columns: 1fr 1fr; }
+  .nimr { width: 240px; }
   .grid { grid-template-columns: repeat(2, 1fr); }
   .steps, .plans { grid-template-columns: repeat(3, 1fr); }
   .plans { grid-template-columns: repeat(2, 1fr); }
