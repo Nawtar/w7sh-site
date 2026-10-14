@@ -105,7 +105,6 @@ section { padding-block: var(--space-10); }
 .page { padding-block: var(--space-7) var(--space-10); }
 .page > .lead { max-width: 720px; }
 .tag { display: inline-block; vertical-align: middle; font-family: var(--font-sans); font-size: var(--type-caption-size); line-height: var(--type-caption-line); font-weight: 600; padding: var(--space-1) var(--space-3); border-radius: var(--radius-sm); background: rgb(var(--color-surface-raised)); color: rgb(var(--color-text)); }
-.tag-plus { background: rgb(var(--color-accent)); color: rgb(var(--color-on-accent)); }
 .feature { display: grid; gap: var(--space-7); padding-block: var(--space-9); border-block-start: 1px solid rgb(var(--color-border-subtle)); }
 .feature-text p { color: rgb(var(--color-text-secondary)); }
 .feature-art { display: grid; gap: var(--space-5); justify-items: center; }
@@ -127,4 +126,33 @@ section { padding-block: var(--space-10); }
 @media (min-width: 760px) {
   .feature { grid-template-columns: 1fr 1fr; align-items: start; }
   .feature:nth-of-type(even) .feature-art { order: -1; }
+}
+
+/* The landing page's sections (2026-10-14): promises, the tour strip, linked cards, the Q&A preview. */
+.promises { list-style: none; padding: 0; margin: 0 0 var(--space-7); display: flex; flex-wrap: wrap; gap: var(--space-3); }
+.promises li { font-size: var(--type-sm-size); line-height: var(--type-sm-line); font-weight: 600; padding: var(--space-2) var(--space-4); border-radius: var(--radius-full); border: 1px solid rgb(var(--color-border)); color: rgb(var(--color-text)); }
+.promises li::before { content: '✓'; color: rgb(var(--color-accent-text)); margin-inline-end: var(--space-2); }
+.band > .lead, section > .lead { max-width: 720px; }
+.card-link { display: block; color: rgb(var(--color-text)); text-decoration: none; }
+.card-link:hover { border-color: rgb(var(--color-accent)); }
+.card-link:focus-visible { outline: 2px solid rgb(var(--color-focus)); outline-offset: 2px; }
+.card .card-tag { margin-block-start: var(--space-4); }
+.more { margin-block-start: var(--space-7); font-weight: 600; }
+.strip { list-style: none; padding: 0; margin: 0 0 var(--space-8); display: grid; grid-auto-flow: column; grid-auto-columns: minmax(200px, 1fr); gap: var(--space-5); overflow-x: auto; scroll-snap-type: x mandatory; padding-block-end: var(--space-3); }
+.strip li { scroll-snap-align: start; }
+.strip a { display: grid; gap: var(--space-2); color: rgb(var(--color-text)); text-decoration: none; }
+.strip img { border-radius: var(--radius-lg); border: 1px solid rgb(var(--color-border)); margin-block-end: var(--space-3); }
+.strip a:hover img { border-color: rgb(var(--color-accent)); }
+.strip-h { font-family: var(--font-display); font-weight: 700; font-size: var(--type-lg-size); line-height: var(--type-lg-line); }
+.strip-p { color: rgb(var(--color-text-secondary)); font-size: var(--type-sm-size); line-height: var(--type-sm-line); }
+.faq-group { padding-block: var(--space-7) 0; }
+.faq-group h2 { font-size: var(--type-lg-size); line-height: var(--type-lg-line); margin-block-end: var(--space-2); }
+.page .button { margin-block-start: var(--space-8); }
+
+@media (min-width: 760px) {
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1000px) {
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
 }
