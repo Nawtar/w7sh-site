@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Use W7SH with an AI assistant | W7SH</title>
+<meta name="description" content="Use W7SH with an AI assistant">
+<meta property="og:title" content="Use W7SH with an AI assistant | W7SH">
+<meta property="og:description" content="Use W7SH with an AI assistant">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://nawtar.github.io/w7sh-site/images/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/w7sh-site/images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/w7sh-site/images/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/w7sh-site/images/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="/w7sh-site/images/apple-touch-icon.png">
+<meta name="color-scheme" content="dark">
+<link rel="alternate" hreflang="ar" href="/w7sh-site/ai/">
+<link rel="alternate" hreflang="en" href="/w7sh-site/en/ai/">
+<link rel="stylesheet" href="/w7sh-site/tokens.css">
+<link rel="stylesheet" href="/w7sh-site/styles.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="/w7sh-site/en/" aria-label="W7SH"><svg class="wm" viewBox="0 0 436 100" width="122" height="28" aria-hidden="true" focusable="false"><polygon class="wm-letter" points="0,0 22,0 31,58 46,20 60,20 75,58 84,0 106,0 90,100 70,100 53,62 35,100 15,100"/><polygon class="wm-seven" points="125,0 219,0 219,18 173,100 145,100 190,24 121,24"/><polygon class="wm-letter" points="247,0 320,0 320,24 261,24 255,40 305,40 325,60 325,82 309,100 230,100 230,76 294,76 299,61 249,61 230,41 230,18"/><polygon class="wm-letter" points="345,0 370,0 370,38 411,38 411,0 436,0 436,100 411,100 411,62 370,62 370,100 345,100"/></svg></a>
+  <a class="lang" href="/w7sh-site/ai/" lang="ar">العربية</a>
+</header>
+<nav class="pages" aria-label="Site pages"><a href="/w7sh-site/en/features/">Features</a><a href="/w7sh-site/en/programs/">Programs</a><a href="/w7sh-site/en/demo/">Tour</a><a href="/w7sh-site/en/news/">What&#39;s new</a></nav>
+<main>
+
+<article class="doc">
+  <h1>Use W7SH with an AI assistant</h1>
+  
+  <h2>What it is</h2><p>A small MCP server that runs on your computer and reads your own W7SH export, so Claude Desktop or any MCP client can answer questions like &quot;How has my bench moved in the last two months?&quot; or &quot;Which muscle am I training least?&quot;</p>
+  <h2>Your privacy</h2><ul><li>Read-only: it changes nothing in your file or your account.</li><li>No network and no account: it reads the file on your computer and sends it nowhere, not to W7SH and not to anyone else.</li><li>The assistant you use sees the numbers it asks for, under that assistant’s own terms.</li></ul>
+  <h2>1. Export your data</h2><p>In W7SH: Profile → Settings → Export my data → JSON, then save the file on your computer. Turn sync on so the file has all your training.</p>
+  <h2>2. Add the server to Claude Desktop</h2><p>Open Claude Desktop → Settings → Developer → Edit Config, put this in the file with the path to your own export, and restart Claude. Your computer needs Node.js 20 or newer.</p><pre dir="ltr"><code>{
+  &quot;mcpServers&quot;: {
+    &quot;w7sh&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [&quot;-y&quot;, &quot;w7sh-mcp&quot;, &quot;/Users/you/Downloads/w7sh-2026-10-13.json&quot;]
+    }
+  }
+}</code></pre>
+  <h2>3. Ask</h2><ul><li>Try: &quot;Sum up my last four weeks&quot;, &quot;Show my squat history&quot;, &quot;What are my personal records?&quot;, &quot;How many sets a week do I do for back?&quot;</li><li>Weights come in your W7SH unit, exercise names in Arabic and English.</li><li>For newer numbers, export again and restart Claude.</li></ul>
+</article>
+</main>
+<footer class="foot">
+  <span>© 2026 W7SH</span>
+  <a href="/w7sh-site/en/privacy/">Privacy</a>
+  <a href="/w7sh-site/en/support/">Support</a>
+  <a href="/w7sh-site/en/terms/">Terms</a>
+</footer>
+</body>
+</html>
