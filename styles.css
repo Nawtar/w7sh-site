@@ -84,6 +84,7 @@ section { padding-block: var(--space-10); }
 .doc li, .doc p { color: rgb(var(--color-text-secondary)); }
 .doc li { margin-block-end: var(--space-3); }
 .doc pre { direction: ltr; text-align: left; overflow-x: auto; margin-block: var(--space-4) 0; padding: var(--space-5); border: 1px solid rgb(var(--color-border)); border-radius: var(--radius-md); background: rgb(var(--color-surface)); color: rgb(var(--color-text)); font: var(--type-sm-size)/var(--type-sm-line) var(--font-mono, ui-monospace, Menlo, monospace); }
+.invite-code strong { display: inline-block; direction: ltr; font: 700 var(--type-xl-size)/var(--type-xl-line) var(--font-display); letter-spacing: 0.12em; color: rgb(var(--color-text)); }
 .draft { background: rgb(var(--color-surface-raised)); color: rgb(var(--color-text)); border-radius: var(--radius-sm); padding: var(--space-4) var(--space-5); }
 
 .foot { display: flex; flex-wrap: wrap; gap: var(--space-6); padding-block: var(--space-9); color: rgb(var(--color-text-muted)); font-size: var(--type-sm-size); border-block-start: 1px solid rgb(var(--color-border-subtle)); }

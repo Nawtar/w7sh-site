@@ -1,8 +1,18 @@
 {
   "trailingSlash": true,
+  "rewrites": [
+    {
+      "source": "/c/:code/",
+      "destination": "/c/"
+    },
+    {
+      "source": "/i/:code/",
+      "destination": "/i/"
+    }
+  ],
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/((?!c/|i/).*)",
       "headers": [
         {
           "key": "Content-Security-Policy",
@@ -15,6 +25,27 @@
         {
           "key": "Referrer-Policy",
           "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        }
+      ]
+    },
+    {
+      "source": "/(c|i)/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; media-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "no-referrer"
         },
         {
           "key": "Permissions-Policy",
